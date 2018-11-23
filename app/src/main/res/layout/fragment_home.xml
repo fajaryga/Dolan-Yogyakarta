@@ -28,13 +28,7 @@
                 android:orientation="horizontal"
                 android:weightSum="2">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="5dp">
-
+                
                     <android.support.v7.widget.CardView
                         android:id="@+id/pilihan"
                         android:layout_width="match_parent"
@@ -42,23 +36,28 @@
                         app:cardCornerRadius="5dp"
                         app:cardUseCompatPadding="true">
 
-
-                        <ImageView
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/pilihan" />
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/pilihan" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Wisata Pilihan"/>
+
+                        </LinearLayout>
+
 
                     </android.support.v7.widget.CardView>
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="15dp">
+
 
                     <android.support.v7.widget.CardView
                         android:id="@+id/sleman"
@@ -67,14 +66,23 @@
                         app:cardCornerRadius="5dp"
                         app:cardUseCompatPadding="true">
 
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:layout_gravity="center"
                             android:src="@drawable/sleman"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Wisata Sleman"/>
                     </android.support.v7.widget.CardView>
-                </LinearLayout>
+                     </LinearLayout>
 
             </LinearLayout>
 
