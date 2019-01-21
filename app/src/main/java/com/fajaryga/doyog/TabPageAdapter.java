@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class TabPageAdapter extends FragmentPagerAdapter {
     public static int halaman = 2;
-    private String judultab[] = new String[]{"Home", "Pencarian"};
+    private String judultab[] = new String[]{"Home", "Profil"};
 
     TabPageAdapter(FragmentManager fm) {
         super(fm);
@@ -19,7 +19,7 @@ public class TabPageAdapter extends FragmentPagerAdapter {
             fragment = new HomeFragment();
         }
         else if (position == 1){
-            fragment = new SearchFragment();
+            fragment = new ProfilFragment();
         }
         return fragment;
     }

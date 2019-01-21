@@ -9,13 +9,14 @@
             android:icon="@drawable/ic_home_black_24dp"
             android:title="Home" />
         <item
-            android:id="@+id/pencarian"
-            android:icon="@drawable/ic_search_black_24dp"
-            android:title="Pencarian" />
+            android:id="@+id/profil"
+            android:icon="@drawable/ic_person_outline_black_24dp"
+            android:title="Profil" />
         <item
             android:id="@+id/wpilihan"
             android:icon="@drawable/ic_navigation_black_24dp"
             android:title="Wisata Pilihan" />
+
     </group>
 
     <item android:title="Communicate">

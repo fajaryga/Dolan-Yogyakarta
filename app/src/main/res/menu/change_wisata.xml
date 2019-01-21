@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.amikom.PETIK.Info">
+    <item
+        android:title="Show In List"
+        android:id="@+id/list2"
+        android:orderInCategory="100"
+        android:icon="@drawable/list"
+        app:showAsAction="always"
+        android:visible="true"/>
+    <item
+        android:title="Show in Grid"
+        android:id="@+id/grid2"
+        android:orderInCategory="100"
+        android:icon="@drawable/grid"
+        app:showAsAction="always"
+       android:visible="false"/>
+</menu>

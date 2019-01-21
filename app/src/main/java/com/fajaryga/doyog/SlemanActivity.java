@@ -1,5 +1,6 @@
 package com.fajaryga.doyog;
 
+
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +14,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class PilihanActivity extends AppCompatActivity {
+public class SlemanActivity extends AppCompatActivity {
     GridView grid;
     ListView list;
     ArrayList<ModelList> arrayList = new ArrayList<>();
@@ -26,43 +27,43 @@ public class PilihanActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pilihan);
+        setContentView(R.layout.activity_sleman);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Dolan Yogyakarta");
-        getSupportActionBar().setSubtitle("Destinasi Wisata Pilihan");
+        getSupportActionBar().setSubtitle("Destinasi Wisata di Sleman");
         namaWisata = new String[]{
-                "Keraton Yogyakarta",
+                "Candi Ratu Boko",
                 "Wisata Kaliurang",
-                "Pantai Glagah",
+                "Candi Prambanan",
                 "Tebing Breksi",
-                "Kalibiru",
-                "Hutan Pinus Mangunan"
+                "Merapi Park",
+                "Lost World Castle"
         };
         rating = new String[]{
-                "4.1",
                 "4",
+                "4.1",
+                "4.3",
+                "5",
                 "3.8",
-                "5",
-                "5",
-                "4.1"
+                "3.5"
         };
         image = new int[]{
-                R.drawable.keratonyogyakarta,
+                R.drawable.candiboko,
                 R.drawable.wisatakaliurang,
-                R.drawable.pantaiglagah,
+                R.drawable.prambanan,
                 R.drawable.breksi,
-                R.drawable.kalibiru,
-                R.drawable.pinusmangunan
+                R.drawable.merapipark,
+                R.drawable.lostworldcastle
 
         };
 
         String[] genre = new String[]{
-                "Kota Jogja",
                 "Kabupaten Sleman",
-                "Kabupaten Kulonprogo",
                 "Kabupaten Sleman",
-                "Kabupaten Kulon Progo",
-                "Kabupaten Bantul"
+                "Kabupaten Sleman",
+                "Kabupaten Sleman",
+                "Kabupaten Sleman",
+                "Kabupaten Sleman"
         };
 
         list = (ListView) findViewById(R.id.list);
@@ -77,7 +78,7 @@ public class PilihanActivity extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent mov = new Intent(PilihanActivity.this,WisataActivity.class);
+                Intent mov = new Intent(SlemanActivity.this,WslmActivity.class);
                 mov.putExtra("position",i);
                 startActivity(mov);
             }
@@ -86,13 +87,13 @@ public class PilihanActivity extends AppCompatActivity {
 
 
         grid = (GridView) findViewById(R.id.gv_wisata);
-        adapter = new WisataAdapter(PilihanActivity.this, namaWisata, image,rating,genre);
+        adapter = new WisataAdapter(SlemanActivity.this, namaWisata, image,rating,genre);
         grid.setAdapter(adapter);
 
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Intent mov = new Intent(PilihanActivity.this,WisataActivity.class);
+                Intent mov = new Intent(SlemanActivity.this,WslmActivity.class);
                 mov.putExtra("position",position);
                 startActivity(mov);
             }
@@ -138,3 +139,4 @@ public class PilihanActivity extends AppCompatActivity {
 
 
 }
+

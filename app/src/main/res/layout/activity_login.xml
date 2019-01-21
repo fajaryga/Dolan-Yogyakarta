@@ -30,6 +30,8 @@
             android:hint="Nama"
             android:padding="15dp"
             android:textColor="@color/putih"
+            android:maxLines="1"
+            android:inputType="textPersonName"
             android:textColorHint="@color/putih" />
 
         <EditText
@@ -41,6 +43,8 @@
             android:drawablePadding="10dp"
             android:hint="Email"
             android:padding="15dp"
+            android:maxLines="1"
+            android:inputType="textEmailAddress"
             android:textColor="@color/putih"
             android:textColorHint="@color/putih" />
         <LinearLayout

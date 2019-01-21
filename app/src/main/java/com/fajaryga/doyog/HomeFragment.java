@@ -10,12 +10,19 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
+
+    CarouselView carouselView;
+    int[] sampleImages = {R.drawable.keratonyogyakarta, R.drawable.wisatakaliurang, R.drawable.pantaiglagah};
 
     public HomeFragment() {
         // Required empty public constructor
@@ -29,11 +36,11 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
 
-
     }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
         CardView pilihan = (CardView) view.findViewById(R.id.pilihan);
         pilihan.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +51,16 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        CardView sleman = (CardView) view.findViewById(R.id.sleman);
+        sleman.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SlemanActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
 
     }
+
 
 }

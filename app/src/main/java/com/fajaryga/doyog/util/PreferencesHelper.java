@@ -34,5 +34,12 @@ public class PreferencesHelper {
     public String getName(){
         return sharedPreferences.getString("isName"," ");
     }
+
+    public void setEmail(String isEmail){
+        sharedPreferences.edit().putString("isEmail",isEmail).apply();
+    }
+    public String getEmail(){
+        return sharedPreferences.getString("isEmail"," ");
+    }
 }
 

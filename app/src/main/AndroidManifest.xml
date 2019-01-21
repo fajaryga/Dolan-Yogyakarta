@@ -3,6 +3,7 @@
     package="com.fajaryga.doyog">
 
     <application
+        android:name=".AppApplication"
         android:allowBackup="true"
         android:icon="@drawable/logoo"
         android:label="@string/app_name"
@@ -20,12 +21,26 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/nav_header_subtitle"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".PilihanActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".WisataActivity"
+            android:label="@string/wisata"
+            android:parentActivityName=".PilihanActivity" />
+        <activity
+            android:name=".PilihanActivity"
+            android:configChanges="orientation|screenLayout|screenSize"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".SlemanActivity"
+            android:configChanges="orientation|screenLayout|screenSize"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".WslmActivity"
+            android:label="@string/wisata"
+            android:parentActivityName=".PilihanActivity"/>
+        <activity android:name=".info"></activity>
     </application>
 
 </manifest>

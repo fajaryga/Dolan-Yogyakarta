@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity
         tabLayout = findViewById(R.id.tablayout);
         tabLayout.setupWithViewPager(mViewPager);
 
-        name = findViewById(R.id.hello);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +73,9 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
+        name = findViewById(R.id.hello);
+        name.setText(PreferencesHelper.getInstance(getApplicationContext()).getName());
         return true;
     }
 
@@ -100,7 +102,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.homedash) {
             // Handle the camera action
-        } else if (id == R.id.pencarian) {
+        } else if (id == R.id.profil) {
 
         } else if (id == R.id.wpilihan) {
 
