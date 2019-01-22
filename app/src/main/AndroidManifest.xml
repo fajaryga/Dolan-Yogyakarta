@@ -43,14 +43,12 @@
             android:label="@string/wisata"
             android:parentActivityName=".PilihanActivity" />
         <activity android:name=".info" />
-        <activity
-            android:name=".BantulActivity"
+        <activity android:name=".YogyakartaActivity"
             android:configChanges="orientation|screenLayout|screenSize"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".WbantulActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".WyogyakartaActivity"
             android:label="@string/wisata"
-            android:parentActivityName=".BantulActivity" />
+            android:parentActivityName=".YogyakartaActivity"></activity>
     </application>
 
 </manifest>
