@@ -5,9 +5,9 @@
     <application
         android:name=".AppApplication"
         android:allowBackup="true"
-        android:icon="@drawable/logoo"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logoo"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -27,36 +27,60 @@
             android:label="@string/nav_header_subtitle"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".WisataActivity"
+            android:name=".activity.WisataActivity"
             android:label="@string/wisata"
-            android:parentActivityName=".PilihanActivity" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".activity.PilihanActivity" />
         <activity
-            android:name=".PilihanActivity"
+            android:name=".activity.PilihanActivity"
             android:configChanges="orientation|screenLayout|screenSize"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".SlemanActivity"
+            android:name=".activity.SlemanActivity"
             android:configChanges="orientation|screenLayout|screenSize"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".WslmActivity"
+            android:name=".activity.WslmActivity"
             android:label="@string/wisata"
-            android:parentActivityName=".PilihanActivity" />
-        <activity android:name=".info" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".activity.PilihanActivity" />
+        <activity android:name=".info"
+            android:label="@string/nav_header_subtitle"
+            android:parentActivityName=".MainActivity"/>
         <activity
-            android:name=".YogyakartaActivity"
+            android:name=".activity.YogyakartaActivity"
             android:configChanges="orientation|screenLayout|screenSize"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".WyogyakartaActivity"
+            android:name=".activity.WyogyakartaActivity"
             android:label="@string/wisata"
-            android:parentActivityName=".YogyakartaActivity" />
-        <activity android:name=".KulonprogoActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".activity.YogyakartaActivity" />
+        <activity
+            android:name=".activity.GundulActivity"
+            android:configChanges="orientation|screenLayout|screenSize"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.WgundulActivity"
+            android:label="@string/wisata"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".activity.YogyakartaActivity" />
+        <activity
+            android:name=".activity.BantulActivity"
+            android:configChanges="orientation|screenLayout|screenSize"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.WbantulActivity"
+            android:label="@string/wisata"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".activity.YogyakartaActivity" />
+        <activity android:name=".activity.KulonprogoActivity"
             android:configChanges="orientation|screenLayout|screenSize"
             android:parentActivityName=".MainActivity"/>
-        <activity android:name=".WkulonprogoActivity"
+        <activity android:name=".activity.WkulonprogoActivity"
             android:label="@string/wisata"
-            android:parentActivityName=".KulonprogoActivity" ></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".activity.KulonprogoActivity" ></activity>
     </application>
 
 </manifest>

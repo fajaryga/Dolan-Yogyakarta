@@ -1,4 +1,4 @@
-package com.fajaryga.doyog;
+package com.fajaryga.doyog.activity;
 
 import android.arch.persistence.room.Room;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fajaryga.doyog.R;
 import com.fajaryga.doyog.room.AppDatabase;
 import com.fajaryga.doyog.room.Wisata;
 import com.fajaryga.doyog.util.PreferencesHelper;
@@ -27,11 +29,12 @@ import java.util.List;
 
 import static com.fajaryga.doyog.AppApplication.db;
 
-public class WyogyakartaActivity extends AppCompatActivity {
+public class WbantulActivity extends AppCompatActivity {
+
     CollapsingToolbarLayout judul;
     String[] namaWisata;
     String[] rating, kategori, deskripsi, lokasi;
-    TextView namaWisata1, kategori1, deskripsi1;
+    TextView namaWisata1, kategori1, deskripsi1, rating1;
     int[] image;
     Button btn;
 
@@ -47,11 +50,14 @@ public class WyogyakartaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wyogyakarta);
+        setContentView(R.layout.activity_wbantul);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         namaWisata1 = (TextView) findViewById(R.id.namaWisata);
         kategori1 = (TextView) findViewById(R.id.kategori);
         deskripsi1 = (TextView) findViewById(R.id.deskripsi);
+        rating1 = (TextView) findViewById(R.id.rating);
 
 
         myRecyclerview = findViewById(R.id.myRecyclerview);
@@ -74,7 +80,7 @@ public class WyogyakartaActivity extends AppCompatActivity {
                     wisata.setTesti(etTesti.getText().toString());
                     //Insert data in database
                     db.userDao().insertAll(wisata);
-                    startActivity(new Intent(WyogyakartaActivity.this,WyogyakartaActivity.class));
+                    startActivity(new Intent(WbantulActivity.this,WbantulActivity.class));
                 }else {
                     Toast.makeText(getApplicationContext(), "Mohon masukkan dengan benar", Toast.LENGTH_SHORT).show();
                 }
@@ -82,12 +88,12 @@ public class WyogyakartaActivity extends AppCompatActivity {
         });
 
         namaWisata = new String[]{
-                "Taman Sari",
-                "Keraton Yogyakarta",
-                "Benteng Vredeburg",
-                "Gembira Loka Zoo",
-                "Taman Pintar",
-                "Malioboro"
+                "Parangtritis",
+                "Perengan Park",
+                "Hutan Pinus",
+                "Bukit Lintang",
+                "Puncak Becici",
+                "Tebing Watu Mabur"
         };
         rating = new String[]{
                 "4.1",
@@ -99,40 +105,43 @@ public class WyogyakartaActivity extends AppCompatActivity {
         };
 
         kategori = new String[]{
-                "Kota Jogja",
-                "Kota Jogja",
-                "Kota Jogja",
-                "Kota Jogja",
-                "Kota Jogja",
-                "Kota Jogja"
+                "Kabupaten Bantul",
+                "Kabupaten Bantul",
+                "Kabupaten Bantul",
+                "Kabupaten Bantul",
+                "Kabupaten Bantul",
+                "Kabupaten Bantul"
         };
 
         image = new int[]{
-                R.drawable.tamansari,
-                R.drawable.keratonyogyakarta,
-                R.drawable.vredeburg,
-                R.drawable.gembiraloka,
-                R.drawable.tamanpintar,
-                R.drawable.malioboro
+                R.drawable.pantaiparangtritis,
+                R.drawable.parenganpark,
+                R.drawable.hutanpinusjpg,
+                R.drawable.bukitlintang,
+                R.drawable.puncakbecici,
+                R.drawable.tebingwatumangunan
 
         };
 
         deskripsi = new String[]{
-                "\tTaman Sari adalah Taman Istana yang memiliki gaya arsitektur unik karena merupakan perpaduan antara gaya arsitektur Jawa dan Portugis, Sultan Hamengkubuwono I dulunya memang dibantu oleh arsitek-artitek dari Portugis saat hendak membangun Taman Sari ini, Hal pertama yang mengesankan ketika Anda berkunjung ke Taman Sari adalah gapura unik dengan ukiran-ukiran cantik yang menjadi pintu masuk di Taman Sari. Memasuki dua pintu kedalam Anda akan menemukan dua kolam berair biru. Pada masanya kolam tersebut adalah tempat pemandian para putri dan selir-selir raja.\n",
-                "\tKeraton yogyakarta merupakan istana resmi Kesultanan Ngayogyakarta Hadiningrat yang kini berlokasi di Kota Yogyakarta, Daerah Istimewa Yogyakarta, Indonesia. Walaupun kesultanan tersebut secara resmi telah menjadi bagian Republik Indonesia pada tahun 1950, kompleks bangunan keraton ini masih berfungsi sebagai tempat tinggal sultan dan rumah tangga istananya yang masih menjalankan tradisi kesultanan hingga saat ini. Keraton ini kini juga merupakan salah satu objek wisata di Kota Yogyakarta.\n",
-                "\tMuseum Benteng Vredeburg adalah salah satu sisa peninggalan bangunan Belanda di Yogyakarta. Di benteng ini kamu bisa belajar sejarah di museumnya, menikmati aneka hidangan lezat di Indische Koffie, hingga berswafoto di tamannya yang asri, Benteng Vredeburg ini merupakan loji (bangunan besar khas Belanda) tertua dari semua bangunan Indis yang ada di kawasan Malioboro dan Titik Nol Kilometer. Bangunan megah ini memiliki rangkaian kisah serta catatan sejarah yang panjang, sehingga sayang jika terlewatkan untuk dikunjungi.\n",
-                "\tTaman pintar adalah  adalah wahana wisata yang terdapat di pusat Kota Yogyakarta, tepatnya di Jalan Panembahan Senopati No. 1-3, Yogyakarta, di kawasan Benteng Vredeburg. Taman ini memadukan tempat wisata rekreasi maupun edukasi dalam satu lokasi. Taman Pintar memiliki arena bermain sekaligus sarana edukasi yang terbagi dalam beberapa zona. Akses langsung kepada pusat buku eks Shopping Centre juga menambah nilai lebih Taman Pintar. Tempat rekreasi ini sangat baik untuk anak-anak pada masa perkembangan. \n",
-                "\tKebun Binatang Gembira Loka Yogyakarta adalah kawasan yang bisa dibilang super lengkap. Dimana, Sobat Native akan disuguhkan berbagai macam hewan yang menggemaskan, lucu, dan menakutkan. Ada pula atraksi hewan-hewan yang menarik untuk disaksikan. Tidak hanya manusia saja yang bisa melakukan sebuah akrobatik, melainkan hewan pun juga bisa.\n",
-                "\tMalioboro adalah sebuah Jalan sepanjang tidak lebih dari 2 Kilo Meter yang membentang mulai dari persimpangan Rel Kereta Api Stasiun Tugu Yogyakarta diujung utara hingga pertigaan pojokan Gedung Agung diujung Selatan, Malioboro adalah sebuah Jalan legendaris yang menjadi ikon Kota Yogyakarta dengan kehidupan kontras antara siang dan malamnya."
+                "\tPantai Parangtritis merupakan obyek wisata pantai yang sangat terkenal diantara pantai-pantai lain yang tersebar di wilayah Yogyakarta ini.\n" +
+                        "Pantai ini diyakini oleh masyarakat setempat sebagai perwujudan kesatuan dari Gunung Merapi, Keraton Jogja dan Parangtritis sendiri. Sehingga masyarakat selalu menghubungkan bilamana ada fenomena alam yang sedang terjadi di antara ketiga tempat hal tersebut.\n" +
+                        "Parangtritis memiliki pemandangan yang unik yang tidak terdapat pada obyek wisata lain, yaitu pantai yang memiliki ombak yang besar dan terdapatnya gunung-gunung pasir disektar kawasana pantai tersebut yang disebut dengan gumuk. Pada musim kemarau angin biasanya akan bertiup lebih cepat dan ombak akan bisa mencapai ketinggian 2 – 3 meter. Karena ombaknya yang besar maka pengunjung Pantai Parangtritis dilarang untuk berenang di seputaran pantai, untuk itu sudah disediakan fasilitas pemandian umum yang bisa digunakan untuk para pengunjung yang ingin berenang dengan aman dan nyaman.\n",
+                "\tDi Perengan Park ada jembatan bambu di atas persawahan, gapura berhias dan beragam aksesoris hiasan. Kamu bisa selfie di spot ini bisa dengan latar belakang sawah menghijau, hamparan bunga celosia berwarna-warni sambil menikmati sunset di petang hari. Begitu memesona. Tempat wisata yang baru dibuka ini berada di Jalur Pantai Selatan, sepaket dengan kawasan Pantai Samas, Pantai Goa Cemara, Pantai Kuwaru dan juga Pantai Baru Pandansimo. Jadi, jika kamu sedang berkunjung ke Pantai Goa Cemara dan sekitarnya, kamu bisa memasukkan Perengan Park ke dalam list yang kamu kunjungi berikutnya..",
+                "\tHutan Pinus Mangunan merupakan daya tarik wisata alam yang berada di perbukitan Bantul sisi sebelah timur. Pada mulanya hutan pinus ini hanyalah wilayah hutan yang dikelola oleh Perhutani. Namun keberadaannya mulai dikenal sejak bermunculan tentang foto-foto keindahan hutan pinus tersebut. Deretan pohon pinus yang tumbuh dengan rapi membuat pengunjung tertarik untuk mengunjunginya dan perlahan-lahan dibuka menjadi kawasan wisata oleh masyarakat sekitar.\n",
+                "\tPuncak Becici memiliki hutan pinus seluas 4,4 hektar dengan hawa yang sejuk. Pada sore hari, pengunjung bisa menikmati sunset. Dari sini pula, pengunjung bisa melihat kecantikan Candi Prambanan bagian utara serta indahnya pantai selatan\n" +
+                        "\n",
+                "\tMangunan merupakan salah satu kawasan wisata di Bantul yang memiliki beberapa spot wisata yang sayang kalau dilewatkan. Mulai dari kebun buah mangunan, hutan pinus, bukit panguk, bukit mojo, dan sekarang yang belum lama ‘opening’ adalah Watu Lawang..\n",
+                "\tTempat wisata yang dibangun Januari 2016 ini memang belum se popular tempat wisata di samping-sampingnya seperti  Hutan Pinus, Kebun Buah Mangunan dan Puncak Becici. Bukit ini  Dulunya  terkenal dengan nama bukit Watu Asah-asah. Penamaan Bukit Lintang Sewu  karena pada malam hari terlihat lampu kota  dan apabila cuaca cerah kalian bisa melihat beribu bintang\n"
         };
 
         lokasi = new String[]{
-                "Kampung+Wisata+Taman+Sari",
-                "Keraton+Yogyakarta",
-                "Museum+Benteng+Vredeburg",
-                "Gembira+Loka+Zoo",
-                "Taman+Pintar+Yogyakarta",
-                "Jl.+Malioboro,+Sosromenduran,+Gedong+Tengen,+Kota+Yogyakarta,+Daerah+Istimewa+Yogyakarta"
+                "Kretek,+Kec.+Kretek,+Bantul,+Daerah+Istimewa+Yogyakarta",
+                "l.+Hutan+Pinus+Nganjir,+Mangunan,+Dlingo,+Bantul,+Daerah+Istimewa+Yogyakarta+55783",
+                "Perengan+Park",
+                "Gunungcilik, RT.07/RW.02, Gn. Cilik, Muntuk, Dlingo, Bantul, Daerah Istimewa Yogyakarta 55783",
+                "Lemahbang RT28, Lembah Bang, Mangunan, Dlingo, Bantul, Daerah Istimewa Yogyakarta 55783",
+                "Karang Asem, Muntuk, Dlingo, Bantul, Daerah Istimewa Yogyakarta 55783"
         };
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -147,11 +156,12 @@ public class WyogyakartaActivity extends AppCompatActivity {
         namaWisata1.setText(namaWisata[position]);
         kategori1.setText(kategori[position]);
         deskripsi1.setText(deskripsi[position]);
+        rating1.setText(rating[position]);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(WyogyakartaActivity.this, "Kamu menyukai wisata ini",Toast.LENGTH_SHORT).show();
+                Toast.makeText(WbantulActivity.this, "Kamu menyukai wisata ini",Toast.LENGTH_SHORT).show();
             }
         });
 

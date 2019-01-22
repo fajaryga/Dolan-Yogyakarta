@@ -1,4 +1,5 @@
-package com.fajaryga.doyog;
+package com.fajaryga.doyog.activity;
+
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -11,9 +12,14 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 
+import com.fajaryga.doyog.ListWisataAdapter;
+import com.fajaryga.doyog.ModelList;
+import com.fajaryga.doyog.R;
+import com.fajaryga.doyog.WisataAdapter;
+
 import java.util.ArrayList;
 
-public class KulonprogoActivity extends AppCompatActivity {
+public class SlemanActivity extends AppCompatActivity {
     GridView grid;
     ListView list;
     ArrayList<ModelList> arrayList = new ArrayList<>();
@@ -23,47 +29,46 @@ public class KulonprogoActivity extends AppCompatActivity {
     String[] rating;
     int[] image;
     Menu a;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kulonprogo);
+        setContentView(R.layout.activity_sleman);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Dolan Yogyakarta");
-        getSupportActionBar().setSubtitle("Destinasi Wisata Di Kulon Progo");
+        getSupportActionBar().setSubtitle("Destinasi Wisata di Sleman");
         namaWisata = new String[]{
-                "Kedung Pedut",
-                "Waduk Sermo",
-                "Kalibiru",
-                "Kebun Teh Nglinggo",
-                "Sungai Mudal",
-                "Pantai Glagah"
+                "Candi Ratu Boko",
+                "Wisata Kaliurang",
+                "Candi Prambanan",
+                "Tebing Breksi",
+                "Merapi Park",
+                "Lost World Castle"
         };
         rating = new String[]{
-                "4.1",
                 "4",
+                "4.1",
+                "4.3",
+                "5",
                 "3.8",
-                "5",
-                "5",
-                "4.1"
+                "3.5"
         };
         image = new int[]{
-                R.drawable.kedungpedut,
-                R.drawable.waduksermo,
-                R.drawable.kalibiru,
-                R.drawable.kbnteh,
-                R.drawable.sungaimudal,
-                R.drawable.pantaiglagah
+                R.drawable.candiboko,
+                R.drawable.wisatakaliurang,
+                R.drawable.prambanan,
+                R.drawable.breksi,
+                R.drawable.merapipark,
+                R.drawable.lostworldcastle
 
         };
 
         String[] genre = new String[]{
-                "Kabupaten Kulonprogo",
-                "Kabupaten Kulonprogo",
-                "Kabupaten Kulonprogo",
-                "Kabupaten Kulonprogo",
-                "Kabupaten Kulonprogo",
-                "Kabupaten Kulonprogo"
+                "Kabupaten Sleman",
+                "Kabupaten Sleman",
+                "Kabupaten Sleman",
+                "Kabupaten Sleman",
+                "Kabupaten Sleman",
+                "Kabupaten Sleman"
         };
 
         list = (ListView) findViewById(R.id.list);
@@ -78,7 +83,7 @@ public class KulonprogoActivity extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent mov = new Intent(KulonprogoActivity.this,WkulonprogoActivity.class);
+                Intent mov = new Intent(SlemanActivity.this,WslmActivity.class);
                 mov.putExtra("position",i);
                 startActivity(mov);
             }
@@ -87,13 +92,13 @@ public class KulonprogoActivity extends AppCompatActivity {
 
 
         grid = (GridView) findViewById(R.id.gv_wisata);
-        adapter = new WisataAdapter(KulonprogoActivity.this, namaWisata, image,rating,genre);
+        adapter = new WisataAdapter(SlemanActivity.this, namaWisata, image,rating,genre);
         grid.setAdapter(adapter);
 
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Intent mov = new Intent(KulonprogoActivity.this,WkulonprogoActivity.class);
+                Intent mov = new Intent(SlemanActivity.this,WslmActivity.class);
                 mov.putExtra("position",position);
                 startActivity(mov);
             }
@@ -139,3 +144,4 @@ public class KulonprogoActivity extends AppCompatActivity {
 
 
 }
+

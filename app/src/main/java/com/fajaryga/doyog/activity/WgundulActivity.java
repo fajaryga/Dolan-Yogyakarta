@@ -1,4 +1,4 @@
-package com.fajaryga.doyog;
+package com.fajaryga.doyog.activity;
 
 import android.arch.persistence.room.Room;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fajaryga.doyog.R;
 import com.fajaryga.doyog.room.AppDatabase;
 import com.fajaryga.doyog.room.Wisata;
 import com.fajaryga.doyog.util.PreferencesHelper;
@@ -31,7 +33,7 @@ public class WgundulActivity extends AppCompatActivity {
     CollapsingToolbarLayout judul;
     String[] namaWisata;
     String[] rating, kategori, deskripsi, lokasi;
-    TextView namaWisata1, kategori1, deskripsi1;
+    TextView namaWisata1, kategori1, deskripsi1, rating1;
     int[] image;
     Button btn;
 
@@ -48,9 +50,13 @@ public class WgundulActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wgundul);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         namaWisata1 = (TextView) findViewById(R.id.namaWisata);
         kategori1 = (TextView) findViewById(R.id.kategori);
         deskripsi1 = (TextView) findViewById(R.id.deskripsi);
+        rating1 = (TextView) findViewById(R.id.rating);
 
 
         myRecyclerview = findViewById(R.id.myRecyclerview);
@@ -158,6 +164,7 @@ public class WgundulActivity extends AppCompatActivity {
         namaWisata1.setText(namaWisata[position]);
         kategori1.setText(kategori[position]);
         deskripsi1.setText(deskripsi[position]);
+        rating1.setText(rating[position]);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".WisataActivity"
+    tools:context=".activity.WisataActivity"
     tools:showIn="@layout/activity_wisata">
 
     <ScrollView
@@ -28,6 +28,11 @@
                 android:layout_height="wrap_content"
                 android:text="Nama Wisata" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/colorPrimary"></View>
+
 
             <LinearLayout
                 android:layout_marginBottom="2dp"
@@ -49,6 +54,38 @@
                     android:id="@+id/kategori"
                     />
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary"></View>
+            <LinearLayout
+                android:layout_marginBottom="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:textColor="#222222"
+                    android:textSize="16sp"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Rating"
+                    />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_rating"/>
+                <TextView
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rating"
+                    android:id="@+id/rating"
+                    />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary"></View>
             <LinearLayout
                 android:layout_marginBottom="2dp"
                 android:layout_width="match_parent"
@@ -60,13 +97,6 @@
                     android:layout_height="wrap_content"
                     android:text="Deskripsi"
                     android:textColor="#222222"
-                    />
-                <TextView
-                    android:textSize="16sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=":"
-
                     />
             </LinearLayout>
             <LinearLayout
@@ -87,6 +117,10 @@
                     />
 
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/colorPrimary"></View>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -106,6 +140,11 @@
                 android:layout_height="match_parent">
 
             </android.support.v7.widget.RecyclerView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/colorPrimary"></View>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -138,6 +177,8 @@
                     android:id="@+id/btInsert"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/orange"
+                    android:textColor="@color/putih"
                     android:text="Submit"/>
 
             </LinearLayout>

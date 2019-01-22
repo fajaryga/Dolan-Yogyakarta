@@ -4,16 +4,19 @@ package com.fajaryga.doyog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
+import com.fajaryga.doyog.activity.BantulActivity;
+import com.fajaryga.doyog.activity.GundulActivity;
+import com.fajaryga.doyog.activity.KulonprogoActivity;
+import com.fajaryga.doyog.activity.PilihanActivity;
+import com.fajaryga.doyog.activity.SlemanActivity;
+import com.fajaryga.doyog.activity.YogyakartaActivity;
 import com.synnapps.carouselview.CarouselView;
-import com.synnapps.carouselview.ImageListener;
 
 
 /**
@@ -74,6 +77,24 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), KulonprogoActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        CardView gunkid = (CardView) view.findViewById(R.id.gk);
+        gunkid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), GundulActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        CardView bantul = (CardView) view.findViewById(R.id.bantul);
+        bantul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), BantulActivity.class);
                 getActivity().startActivity(intent);
             }
         });

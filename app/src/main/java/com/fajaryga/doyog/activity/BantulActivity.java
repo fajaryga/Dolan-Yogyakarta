@@ -1,5 +1,4 @@
-package com.fajaryga.doyog;
-
+package com.fajaryga.doyog.activity;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -12,9 +11,15 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 
+import com.fajaryga.doyog.ListWisataAdapter;
+import com.fajaryga.doyog.ModelList;
+import com.fajaryga.doyog.R;
+import com.fajaryga.doyog.WisataAdapter;
+
 import java.util.ArrayList;
 
-public class SlemanActivity extends AppCompatActivity {
+public class BantulActivity extends AppCompatActivity {
+
     GridView grid;
     ListView list;
     ArrayList<ModelList> arrayList = new ArrayList<>();
@@ -24,46 +29,47 @@ public class SlemanActivity extends AppCompatActivity {
     String[] rating;
     int[] image;
     Menu a;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sleman);
+        setContentView(R.layout.activity_bantul);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Dolan Yogyakarta");
-        getSupportActionBar().setSubtitle("Destinasi Wisata di Sleman");
+        getSupportActionBar().setSubtitle("Destinasi Wisata Bantul");
         namaWisata = new String[]{
-                "Candi Ratu Boko",
-                "Wisata Kaliurang",
-                "Candi Prambanan",
-                "Tebing Breksi",
-                "Merapi Park",
-                "Lost World Castle"
+                "Parangtritis",
+                "Perengan Park",
+                "Hutan Pinus",
+                "Bukit Lintang",
+                "Puncak Becici",
+                "Tebing Watu Mabur"
         };
         rating = new String[]{
-                "4",
                 "4.1",
-                "4.3",
-                "5",
+                "4",
                 "3.8",
-                "3.5"
+                "5",
+                "5",
+                "4.1"
         };
         image = new int[]{
-                R.drawable.candiboko,
-                R.drawable.wisatakaliurang,
-                R.drawable.prambanan,
-                R.drawable.breksi,
-                R.drawable.merapipark,
-                R.drawable.lostworldcastle
+                R.drawable.pantaiparangtritis,
+                R.drawable.parenganpark,
+                R.drawable.hutanpinusjpg,
+                R.drawable.bukitlintang,
+                R.drawable.puncakbecici,
+                R.drawable.tebingwatumangunan
 
         };
 
         String[] genre = new String[]{
-                "Kabupaten Sleman",
-                "Kabupaten Sleman",
-                "Kabupaten Sleman",
-                "Kabupaten Sleman",
-                "Kabupaten Sleman",
-                "Kabupaten Sleman"
+                "Kabupaten Bantul",
+                "Kabupaten Bantul",
+                "Kabupaten Bantul",
+                "Kabupaten Bantul",
+                "Kabupaten Bantul",
+                "Kabupaten Bantul"
         };
 
         list = (ListView) findViewById(R.id.list);
@@ -78,7 +84,7 @@ public class SlemanActivity extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent mov = new Intent(SlemanActivity.this,WslmActivity.class);
+                Intent mov = new Intent(BantulActivity.this,WbantulActivity.class);
                 mov.putExtra("position",i);
                 startActivity(mov);
             }
@@ -87,13 +93,13 @@ public class SlemanActivity extends AppCompatActivity {
 
 
         grid = (GridView) findViewById(R.id.gv_wisata);
-        adapter = new WisataAdapter(SlemanActivity.this, namaWisata, image,rating,genre);
+        adapter = new WisataAdapter(BantulActivity.this, namaWisata, image,rating,genre);
         grid.setAdapter(adapter);
 
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Intent mov = new Intent(SlemanActivity.this,WslmActivity.class);
+                Intent mov = new Intent(BantulActivity.this,WbantulActivity.class);
                 mov.putExtra("position",position);
                 startActivity(mov);
             }
@@ -139,4 +145,3 @@ public class SlemanActivity extends AppCompatActivity {
 
 
 }
-

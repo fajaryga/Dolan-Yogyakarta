@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.fajaryga.doyog.GundulActivity">
+    tools:context="com.fajaryga.doyog.activity.GundulActivity">
 
     <GridView
         android:drawSelectorOnTop="true"

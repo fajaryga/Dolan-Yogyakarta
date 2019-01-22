@@ -18,7 +18,7 @@
         <ImageView
             android:layout_width="300dp"
             android:layout_height="150dp"
-            android:src="@drawable/logoo" />
+            android:src="@drawable/splash" />
 
         <EditText
             android:id="@+id/etNama"

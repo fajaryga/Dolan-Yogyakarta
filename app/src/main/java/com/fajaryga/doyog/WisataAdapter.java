@@ -10,17 +10,17 @@ import android.widget.TextView;
 
 public class WisataAdapter extends BaseAdapter {
     Context context;
-    String[] Version;
+    String[] namaWisata;
     String rating[];
-    String[] genre;
+    String[] kategori;
     int[] image;
     LayoutInflater inflater;
-    public WisataAdapter(Context context, String[] version, int[] image, String[]rating, String[] genre) {
+    public WisataAdapter(Context context, String[] namaWisata, int[] image, String[]rating, String[] kategori) {
         this.context = context;
-        Version = version;
+        this.namaWisata = namaWisata;
         this.image = image;
         this.rating = rating;
-        this.genre = genre;
+        this.kategori = kategori;
     }
 
     static class ViewHolder {
@@ -32,7 +32,7 @@ public class WisataAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return Version.length;
+        return namaWisata.length;
     }
 
     @Override
@@ -68,10 +68,11 @@ public class WisataAdapter extends BaseAdapter {
         }
 
 
-        holder.title.setText(Version[position]);
+        holder.title.setText(namaWisata[position]);
         holder.rating.setText(rating[position]);
-        holder.genre.setText(genre[position]);
+        holder.genre.setText(kategori[position]);
         holder.icon.setImageResource(image[position]);
         return row;
     }
 }
+

@@ -1,4 +1,4 @@
-package com.fajaryga.doyog;
+package com.fajaryga.doyog.activity;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -11,10 +11,14 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 
+import com.fajaryga.doyog.ListWisataAdapter;
+import com.fajaryga.doyog.ModelList;
+import com.fajaryga.doyog.R;
+import com.fajaryga.doyog.WisataAdapter;
+
 import java.util.ArrayList;
 
-public class BantulActivity extends AppCompatActivity {
-
+public class PilihanActivity extends AppCompatActivity {
     GridView grid;
     ListView list;
     ArrayList<ModelList> arrayList = new ArrayList<>();
@@ -24,21 +28,20 @@ public class BantulActivity extends AppCompatActivity {
     String[] rating;
     int[] image;
     Menu a;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bantul);
+        setContentView(R.layout.activity_pilihan);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Dolan Yogyakarta");
-        getSupportActionBar().setSubtitle("Destinasi Wisata Bantul");
+        getSupportActionBar().setSubtitle("Destinasi Wisata Pilihan");
         namaWisata = new String[]{
-                "Parangtritis",
-                "Perengan Park",
-                "Hutan Pinus",
-                "Bukit Lintang",
-                "Puncak Becici",
-                "Tebing Watu Mabur"
+                "Keraton Yogyakarta",
+                "Wisata Kaliurang",
+                "Pantai Glagah",
+                "Tebing Breksi",
+                "Kalibiru",
+                "Hutan Pinus Mangunan"
         };
         rating = new String[]{
                 "4.1",
@@ -49,21 +52,21 @@ public class BantulActivity extends AppCompatActivity {
                 "4.1"
         };
         image = new int[]{
-                R.drawable.pantaiparangtritis,
-                R.drawable.parenganpark,
-                R.drawable.hutanpinusjpg,
-                R.drawable.bukitlintang,
-                R.drawable.puncakbecici,
-                R.drawable.tebingwatumangunan
+                R.drawable.keratonyogyakarta,
+                R.drawable.wisatakaliurang,
+                R.drawable.pantaiglagah,
+                R.drawable.breksi,
+                R.drawable.kalibiru,
+                R.drawable.pinusmangunan
 
         };
 
         String[] genre = new String[]{
-                "Kabupaten Bantul",
-                "Kabupaten Bantul",
-                "Kabupaten Bantul",
-                "Kabupaten Bantul",
-                "Kabupaten Bantul",
+                "Kota Jogja",
+                "Kabupaten Sleman",
+                "Kabupaten Kulonprogo",
+                "Kabupaten Sleman",
+                "Kabupaten Kulon Progo",
                 "Kabupaten Bantul"
         };
 
@@ -79,7 +82,7 @@ public class BantulActivity extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent mov = new Intent(BantulActivity.this,WbantulActivity.class);
+                Intent mov = new Intent(PilihanActivity.this,WisataActivity.class);
                 mov.putExtra("position",i);
                 startActivity(mov);
             }
@@ -88,13 +91,13 @@ public class BantulActivity extends AppCompatActivity {
 
 
         grid = (GridView) findViewById(R.id.gv_wisata);
-        adapter = new WisataAdapter(BantulActivity.this, namaWisata, image,rating,genre);
+        adapter = new WisataAdapter(PilihanActivity.this, namaWisata, image,rating,genre);
         grid.setAdapter(adapter);
 
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Intent mov = new Intent(BantulActivity.this,WbantulActivity.class);
+                Intent mov = new Intent(PilihanActivity.this,WisataActivity.class);
                 mov.putExtra("position",position);
                 startActivity(mov);
             }

@@ -1,10 +1,13 @@
 package com.fajaryga.doyog;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.fajaryga.doyog.activity.PilihanActivity;
 import com.fajaryga.doyog.util.PreferencesHelper;
 
 public class MainActivity extends AppCompatActivity
@@ -44,8 +48,13 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Kirim kritik & saran", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                String txtShare = "Liburan ke Jogja binggung mau kemana?" +
+                        " DOYOG aja!";
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, txtShare);
+                shareIntent.setType("text/plain");
+                startActivity(shareIntent);
             }
         });
 
@@ -88,6 +97,27 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle("Keluar");
+            builder.setMessage("Yakin ingin keluar?");
+
+            builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            });
+            builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                @Override
+
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    moveTaskToBack(true);
+
+                }
+            });
+
+            builder.show();
             return true;
         }
 
@@ -103,13 +133,23 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.homedash) {
             // Handle the camera action
         } else if (id == R.id.profil) {
-
+            Intent profil = new Intent(MainActivity.this,MainActivity.class);
+            profil.putExtra("position",1);
+            startActivity(profil);
         } else if (id == R.id.wpilihan) {
-
+            Intent pil = new Intent(MainActivity.this,PilihanActivity.class);
+            startActivity(pil);
         } else if (id == R.id.nav_share) {
-
+            String txtShare = "Liburan ke Jogja binggung mau kemana?" +
+                    " DOYOG aja!";
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, txtShare);
+            shareIntent.setType("text/plain");
+            startActivity(shareIntent);
         } else if (id == R.id.nav_about) {
-
+            Intent about = new Intent(MainActivity.this,info.class);
+            startActivity(about);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

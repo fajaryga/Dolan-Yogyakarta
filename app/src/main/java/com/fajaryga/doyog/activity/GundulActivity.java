@@ -1,4 +1,4 @@
-package com.fajaryga.doyog;
+package com.fajaryga.doyog.activity;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -10,6 +10,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
+
+import com.fajaryga.doyog.ListWisataAdapter;
+import com.fajaryga.doyog.ModelList;
+import com.fajaryga.doyog.R;
+import com.fajaryga.doyog.WisataAdapter;
 
 import java.util.ArrayList;
 
