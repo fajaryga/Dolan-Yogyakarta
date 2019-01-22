@@ -9,6 +9,7 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.fajaryga.doyog.activity.BantulActivity;
 import com.fajaryga.doyog.activity.GundulActivity;
@@ -16,17 +17,14 @@ import com.fajaryga.doyog.activity.KulonprogoActivity;
 import com.fajaryga.doyog.activity.PilihanActivity;
 import com.fajaryga.doyog.activity.SlemanActivity;
 import com.fajaryga.doyog.activity.YogyakartaActivity;
-import com.synnapps.carouselview.CarouselView;
+import com.fajaryga.doyog.util.PreferencesHelper;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
-
-    CarouselView carouselView;
-    int[] sampleImages = {R.drawable.keratonyogyakarta, R.drawable.wisatakaliurang, R.drawable.pantaiglagah};
-
+    private TextView name;
     public HomeFragment() {
         // Required empty public constructor
 
@@ -38,12 +36,12 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
-
     }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        name = view.findViewById(R.id.welcome);
+        name.setText("Selamat datang, "+ PreferencesHelper.getInstance(getActivity().getApplicationContext()).getName());
 
         CardView pilihan = (CardView) view.findViewById(R.id.pilihan);
         pilihan.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +98,5 @@ public class HomeFragment extends Fragment {
         });
 
     }
-
 
 }
