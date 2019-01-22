@@ -69,11 +69,11 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        CardView gunkid = (CardView) view.findViewById(R.id.gk);
-        gunkid.setOnClickListener(new View.OnClickListener() {
+        CardView kp = (CardView) view.findViewById(R.id.kp);
+        kp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), GundulActivity.class);
+                Intent intent = new Intent(getActivity(), KulonprogoActivity.class);
                 getActivity().startActivity(intent);
             }
         });
