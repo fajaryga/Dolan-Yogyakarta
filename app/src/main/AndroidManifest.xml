@@ -5,9 +5,9 @@
     <application
         android:name=".AppApplication"
         android:allowBackup="true"
-        android:icon="@drawable/logoo"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logoo"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -43,12 +43,20 @@
             android:label="@string/wisata"
             android:parentActivityName=".PilihanActivity" />
         <activity android:name=".info" />
-        <activity android:name=".YogyakartaActivity"
+        <activity
+            android:name=".YogyakartaActivity"
+            android:configChanges="orientation|screenLayout|screenSize"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".WyogyakartaActivity"
+            android:label="@string/wisata"
+            android:parentActivityName=".YogyakartaActivity" />
+        <activity android:name=".GundulActivity"
             android:configChanges="orientation|screenLayout|screenSize"
             android:parentActivityName=".MainActivity"/>
-        <activity android:name=".WyogyakartaActivity"
+        <activity android:name=".WgundulActivity"
             android:label="@string/wisata"
-            android:parentActivityName=".YogyakartaActivity"></activity>
+            android:parentActivityName=".GundulActivity"></activity>
     </application>
 
 </manifest>
