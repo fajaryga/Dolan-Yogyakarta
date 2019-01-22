@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.fajaryga.doyog.util.PreferencesHelper;
@@ -38,6 +39,15 @@ public class ProfilFragment extends Fragment {
         mail = view.findViewById(R.id.tvEmail);
         name.setText(PreferencesHelper.getInstance(getActivity().getApplicationContext()).getName());
         mail.setText(PreferencesHelper.getInstance(getActivity().getApplicationContext()).getEmail());
+
+        Button info = (Button) view.findViewById(R.id.btn_ttg);
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), info.class);
+                getActivity().startActivity(intent);
+            }
+        });
     }
 
 }
