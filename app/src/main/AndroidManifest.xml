@@ -34,13 +34,23 @@
             android:name=".PilihanActivity"
             android:configChanges="orientation|screenLayout|screenSize"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".SlemanActivity"
+        <activity
+            android:name=".SlemanActivity"
             android:configChanges="orientation|screenLayout|screenSize"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".WslmActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".WslmActivity"
             android:label="@string/wisata"
-            android:parentActivityName=".PilihanActivity"/>
-        <activity android:name=".info"></activity>
+            android:parentActivityName=".PilihanActivity" />
+        <activity android:name=".info" />
+        <activity
+            android:name=".BantulActivity"
+            android:configChanges="orientation|screenLayout|screenSize"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".WbantulActivity"
+            android:label="@string/wisata"
+            android:parentActivityName=".BantulActivity" />
     </application>
 
 </manifest>

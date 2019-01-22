@@ -60,6 +60,15 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        CardView bantul = (CardView) view.findViewById(R.id.bantul);
+        bantul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), BantulActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
     }
 
 
